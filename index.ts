@@ -3,6 +3,11 @@ console.log('hello from index.ts')
 
 function AppActionClass(name?: string) {
   return function (target: Function) {
+    // @ts-ignore
+    if (!window.Cypress) {
+      return target
+    }
+
     // save a reference to the original constructor
     const original = target;
 
@@ -39,7 +44,6 @@ const o = new O()
 o.foo = 'nice'
 
 console.log('decorated foo', o.foo)
-
 
 @AppActionClass('Person')
 class Person {
