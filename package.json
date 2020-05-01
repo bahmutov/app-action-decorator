@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel serve index.html"
+    "test": "cypress run",
+    "start": "parcel serve index.html",
+    "cy:open": "cypress open",
+    "dev": "start-test 1234 cy:open"
   },
   "keywords": [],
   "author": "",
